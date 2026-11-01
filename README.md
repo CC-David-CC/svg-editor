@@ -92,3 +92,13 @@ drawing edits in this special recovery case remain unverified.
 The inline CSS animation guard protects a confirmed loss: SVG-edit removed `style="animation: ..."` from a rectangle when loading it. Local desktop and emulated-phone account tests cover rejected inline animations, preserving the original and current drawing, and reopening a separate static SVG; other CSS, actual animation rendering and physical touch remain unverified.
 
 The inline CSS animation guard also detects browser-parsed escaped property names, such as `anim\61tion`; a real editor probe showed that SVG-edit strips that style. Local desktop and emulated-phone account tests reject these inputs before changing the current drawing, while preserving and syncing the original. This is not comprehensive support or detection for every CSS or SVG feature.
+
+SVG-edit rewrites a root `viewBox` into its own canvas dimensions. Opening an
+SVG whose viewport scales or offsets the coordinate system can therefore change
+its physical size or composition on save. The app refuses such files before
+changing the current drawing or the original; use another editor for them.
+Identity viewports (zero origin and numeric pixel width/height equal to the
+viewBox) remain supported, including the tested Excalidraw SVG export. Local
+registered-account desktop and emulated-phone tests checked scaled, offset and
+percentage-sized viewports, original/current preservation and identity
+open/save/sync/reopen; physical touch and other SVG semantics remain unverified.
