@@ -52,3 +52,8 @@ emulated-phone discard-race regression passed. In a negative-control test,
 the previous source left the drawing unsaved after Ctrl+S. A physical Mac,
 physical touch and all editor shortcuts remain unverified. A public phone-sized
 account test also passed.
+
+The local file-identity candidate updates a window's My files reference after
+opening or saving another SVG. A desktop account regression verifies that an
+original and a saved copy open in separate windows; the phone-sized shortcut
+regression also passed. Physical touch remains unverified.
