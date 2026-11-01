@@ -41,3 +41,14 @@ after saving. The checks use a revision counter and prevent overlapping file
 actions while the confirmation or picker is active.
 
 Static release `8116f42affd3fb89e936830c5c77c0df6a2c76920e303c0f973eb795c8fdb36b` serves the integrated menu and image/PDF exports. Local desktop, emulated-phone and 4K workflows passed, including keyboard and emulated-tap menu activation, conflict checks, PDF Viewer and Stitch Converter integration. A save-safety test initially lacked Stitch Converter in the isolated preview; it passed after the app was included. Public desktop and emulated-phone account tests passed editing, export, sync, fresh-session reopen and fallback. Physical phone touch and complex artwork remain unverified.
+
+The local shortcut candidate routes Ctrl+S (or Command+S) in the focused
+editor to My files and Ctrl+Shift+S (or Command+Shift+S) to Save As. It also
+prevents overlapping file actions while a Save As or export path prompt is
+open. Local desktop, emulated-phone and 4K account tests exercise Ctrl-based
+shortcuts and a simulated Meta+S with the editor iframe focused, programmatically triggered competing
+actions, SVG save, PNG export, sync, reopen and listener cleanup. A separate
+emulated-phone discard-race regression passed. In a negative-control test,
+the previous source left the drawing unsaved after Ctrl+S. A physical Mac,
+physical touch and all editor shortcuts remain unverified. This candidate has
+not been deployed.
