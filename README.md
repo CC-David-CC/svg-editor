@@ -119,9 +119,17 @@ attributes or inline declarations and non-default blending attributes or inline
 declarations before replacing the canvas or source file. This includes tested
 CSS-escaped property names. An ordinary SVG with a stylesheet remains supported;
 stylesheet-defined effects and other SVG features have not been comprehensively
-verified. A real diagrams.net SVG export currently contains a DOCTYPE and is
-therefore refused by the existing SVG safety check: the source diagram and SVG
-are preserved, but that cross-app edit workflow is not supported yet. Local
-registered-account desktop and emulated-phone tests checked source and current
-canvas preservation, pixel differences in upstream SVG-edit, sync, and reopening;
-physical touch remains unverified.
+verified. Local registered-account desktop and emulated-phone tests checked
+source and current canvas preservation, pixel differences in upstream SVG-edit,
+sync, and reopening; physical touch remains unverified.
+
+A diagrams.net SVG with embedded diagram content can be opened as a separate
+SVG copy after an explicit warning. SVG-edit does not retain the embedded
+editable diagram or its adaptive theme reliably. Save defaults to a new
+`-edited.svg` path; the original SVG and `.drawio` project remain available.
+Only diagrams.net's exact known SVG 1.1 PUBLIC declaration is removed before
+XML parsing, and only when the SVG contains embedded diagram content; custom
+entities and other document types remain rejected. Desktop and emulated-phone
+account tests cover cancellation, actual export, edit, save/sync/fresh reopen,
+source preservation and pixel comparison for a simple light-theme diagram.
+More complex drawings, dark-mode fidelity and physical touch remain unverified.
