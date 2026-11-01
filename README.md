@@ -60,3 +60,9 @@ The local file-identity candidate updates a window's My files reference after
 opening or saving another SVG. A desktop account regression verifies that an
 original and a saved copy open in separate windows; the phone-sized shortcut
 regression also passed. Physical touch remains unverified.
+
+If a restored SVG is missing or invalid, SVG-edit keeps an independent blank
+canvas and clears the failed file association. The original file is not
+modified. Local desktop and emulated-phone tests cover invalid and missing
+files, creating the example, saving it to My files, server sync and refresh.
+Physical touch remains unverified.
