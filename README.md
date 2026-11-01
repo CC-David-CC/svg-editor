@@ -148,3 +148,10 @@ write, timeout, retry, export and discard cancellation, final opacity, sync and
 fresh reopen. The previous public
 release was also tested with that callback held and did write the incomplete SVG.
 Physical touch remains unverified.
+
+Exporting JPEG asks for confirmation that transparency becomes opaque and that
+JPEG compression is lossy. Cancel leaves the drawing and destination untouched;
+if the drawing changes during confirmation, export asks the user to retry.
+PNG preserves transparency. Local registered-account desktop and emulated-phone
+checks compared exported pixels, cancellation, server sync, and fresh SVG
+reopen. Physical touch and more complex image content remain unverified.
