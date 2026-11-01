@@ -21,8 +21,7 @@ feature of every SVG, and valid XML alone does not establish compatibility.
 SVG files containing SMIL animation elements such as `animate`,
 `animateTransform`, `animateMotion`, `animateColor` or `set` are refused before
 opening because SVG-edit can silently remove them on save. The current drawing
-and original file stay unchanged. This check does not detect all CSS animation
-or guarantee compatibility with other SVG features. Local desktop and
+and original file stay unchanged. SVG-edit also strips inline CSS animation in a confirmed case, so files containing inline CSS animation declarations are refused. Stylesheet animation and other CSS features are not comprehensively validated, and this check does not guarantee compatibility with other SVG features. Local desktop and
 emulated-phone tests cover computer upload of an animated SVG, each listed
 element, preservation of the current drawing and original, server sync and
 fresh-session reopening. Physical touch remains unverified.
@@ -89,3 +88,5 @@ When `/Untitled.svg` cannot be read at startup, the scratch canvas defaults to
 registered-account desktop and emulated-phone tests checked a blank scratch save,
 server sync, unchanged original bytes and a later Retry. Physical touch and actual
 drawing edits in this special recovery case remain unverified.
+
+The inline CSS animation guard protects a confirmed loss: SVG-edit removed `style="animation: ..."` from a rectangle when loading it. Local desktop and emulated-phone account tests cover rejected inline animations, preserving the original and current drawing, and reopening a separate static SVG; other CSS, actual animation rendering and physical touch remain unverified.
