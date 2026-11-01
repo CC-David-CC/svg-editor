@@ -133,3 +133,18 @@ entities and other document types remain rejected. Desktop and emulated-phone
 account tests cover cancellation, actual export, edit, save/sync/fresh reopen,
 source preservation and pixel comparison for a simple light-theme diagram.
 More complex drawings, dark-mode fidelity and physical touch remain unverified.
+
+SVG-edit briefly adds a 200 ms opacity animation while a new shape finishes.
+Saving during that interval previously wrote the temporary animation and partial
+opacity; the app then refused to reopen its own SVG because it does not support
+animation. Save, Export, Open, retry and the example now wait for those
+in-canvas animations to finish before snapshot or discard decisions, for up to
+two seconds. If they do not finish, it leaves work marked
+unsaved and asks the user to retry. The editor also marks the window dirty when
+the specific temporary shape animation appears, so closing it asks before
+discarding the unfinished shape. Local registered-account desktop and emulated-
+phone tests hold the editor's actual completion callback to verify no premature
+write, timeout, retry, export and discard cancellation, final opacity, sync and
+fresh reopen. The previous public
+release was also tested with that callback held and did write the incomplete SVG.
+Physical touch remains unverified.
