@@ -66,3 +66,10 @@ canvas and clears the failed file association. The original file is not
 modified. Local desktop and emulated-phone tests cover invalid and missing
 files, creating the example, saving it to My files, server sync and refresh.
 Physical touch remains unverified.
+
+If an SVG or the example cannot load and the editor also fails to restore the
+previous canvas, the app marks the current canvas unsaved and detaches it from
+the prior file. It warns that the canvas may be incomplete; save a copy or
+reopen the original. Local desktop and emulated-phone tests inject both failures,
+check the close guard, preserve the original, and sync a saved copy. These tests
+inject failures rather than reproducing a specific upstream crash.
