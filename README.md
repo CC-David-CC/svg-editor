@@ -18,6 +18,14 @@ The app checks XML and the SVG root before opening. Invalid XML leaves the
 current drawing intact; if the editor itself rejects a valid-looking SVG, the
 app attempts to restore the previous drawing. SVG-edit may not preserve every
 feature of every SVG, and valid XML alone does not establish compatibility.
+SVG files containing SMIL animation elements such as `animate`,
+`animateTransform`, `animateMotion`, `animateColor` or `set` are refused before
+opening because SVG-edit can silently remove them on save. The current drawing
+and original file stay unchanged. This check does not detect all CSS animation
+or guarantee compatibility with other SVG features. Local desktop and
+emulated-phone tests cover computer upload of an animated SVG, each listed
+element, preservation of the current drawing and original, server sync and
+fresh-session reopening. Physical touch remains unverified.
 Desktop and emulated-phone tests exercise a rectangle and account recovery;
 physical touch, complex artwork and all upstream features remain unverified.
 
