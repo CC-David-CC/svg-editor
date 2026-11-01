@@ -34,7 +34,7 @@ not overwrite the previously saved SVG. Local desktop, emulated-phone and 4K
 and live emulated-phone account tests cover editing, replacement cancellation,
 save, sync and fresh-session reopening. Physical touch remains unverified.
 
-The local candidate checks for edits made while an Open or Try example discard
+The editor checks for edits made while an Open or Try example discard
 confirmation is showing, and checks again after choosing an SVG. If the drawing
 changed, it stays open and the requested replacement is cancelled; try again
 after saving. The checks use a revision counter and prevent overlapping file
