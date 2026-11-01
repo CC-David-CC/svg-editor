@@ -81,3 +81,5 @@ the prior file. It warns that the canvas may be incomplete; save a copy or
 reopen the original. Local desktop and emulated-phone tests inject both failures,
 check the close guard, preserve the original, and sync a saved copy. These tests
 inject failures rather than reproducing a specific upstream crash.
+
+If a saved drawing cannot be read while opening, the editor keeps its reference and offers **Retry opening saved SVG**. The blank scratch canvas cannot overwrite the original by a normal Save; save a separate file to keep scratch work. Retrying asks before discarding scratch edits. Invalid SVG files still open as a new blank drawing; the original is left unchanged.
