@@ -112,3 +112,16 @@ attribute, inline and CSS-escaped property forms, plus a supported `none`
 attribute, sync and reopen. A separate test exported a real Excalidraw drawing,
 opened it here, added a rectangle and synced the edited SVG on both viewports.
 Stylesheet rules, other SVG semantics and physical touch remain unverified.
+
+SVG-edit was observed stripping `paint-order` and inline `mix-blend-mode`,
+changing visible pixels in test drawings. The app refuses explicit paint-order
+attributes or inline declarations and non-default blending attributes or inline
+declarations before replacing the canvas or source file. This includes tested
+CSS-escaped property names. An ordinary SVG with a stylesheet remains supported;
+stylesheet-defined effects and other SVG features have not been comprehensively
+verified. A real diagrams.net SVG export currently contains a DOCTYPE and is
+therefore refused by the existing SVG safety check: the source diagram and SVG
+are preserved, but that cross-app edit workflow is not supported yet. Local
+registered-account desktop and emulated-phone tests checked source and current
+canvas preservation, pixel differences in upstream SVG-edit, sync, and reopening;
+physical touch remains unverified.
