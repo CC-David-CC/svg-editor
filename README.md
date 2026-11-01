@@ -102,3 +102,13 @@ viewBox) remain supported, including the tested Excalidraw SVG export. Local
 registered-account desktop and emulated-phone tests checked scaled, offset and
 percentage-sized viewports, original/current preservation and identity
 open/save/sync/reopen; physical touch and other SVG semantics remain unverified.
+
+SVG-edit was observed stripping the `vector-effect` attribute and inline CSS
+`vector-effect` from a transformed rectangle, changing its stroke width. The
+app rejects non-default vector-effect attributes and inline vector-effect
+declarations before opening, keeping both the original file and current canvas
+unchanged. Local registered-account desktop and phone-sized tests cover the
+attribute, inline and CSS-escaped property forms, plus a supported `none`
+attribute, sync and reopen. A separate test exported a real Excalidraw drawing,
+opened it here, added a rectangle and synced the edited SVG on both viewports.
+Stylesheet rules, other SVG semantics and physical touch remain unverified.
