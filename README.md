@@ -90,3 +90,5 @@ server sync, unchanged original bytes and a later Retry. Physical touch and actu
 drawing edits in this special recovery case remain unverified.
 
 The inline CSS animation guard protects a confirmed loss: SVG-edit removed `style="animation: ..."` from a rectangle when loading it. Local desktop and emulated-phone account tests cover rejected inline animations, preserving the original and current drawing, and reopening a separate static SVG; other CSS, actual animation rendering and physical touch remain unverified.
+
+The inline CSS animation guard also detects browser-parsed escaped property names, such as `anim\61tion`; a real editor probe showed that SVG-edit strips that style. Local desktop and emulated-phone account tests reject these inputs before changing the current drawing, while preserving and syncing the original. This is not comprehensive support or detection for every CSS or SVG feature.
