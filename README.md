@@ -1,10 +1,18 @@
 # SVG-edit
 
-SVG-edit runs in a separate desktop window. Open an SVG from My files; use
-Files to upload an SVG from a computer. Save writes to My files on the device
-and then syncs with the account server. Expand Save location to choose a folder
-or filename. Existing files require confirmation, and conflicting versions are
-reported rather than silently replaced.
+SVG-edit runs in a separate desktop window. Use the **SVG-Edit** menu to open
+from My files, try the example, save, or save as a different path. Use Files to
+upload an SVG from a computer. Saves go to My files on the device and then sync
+with the account server. Existing files require confirmation, and conflicting
+versions are reported rather than silently replaced. If the embedded editor
+menu is unavailable, file controls appear above the editor as a fallback.
+
+**Export image or PDF…** saves PNG, JPEG, WebP or PDF to My files. JPEG uses a white
+background. Rendering is limited to 16 million pixels, 16,384 pixels per side,
+and a 16 MiB source SVG. Embedded images, external fonts and complex SVG effects
+may render differently or be unavailable in the browser; inspect the exported
+image. PDF export contains a rendered image, so its text and shapes are not
+individually selectable or editable.
 
 The app checks XML and the SVG root before opening. Invalid XML leaves the
 current drawing intact; if the editor itself rejects a valid-looking SVG, the
