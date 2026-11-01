@@ -33,3 +33,5 @@ it asks before discarding unsaved edits, starts a new unsaved document, and does
 not overwrite the previously saved SVG. Local desktop, emulated-phone and 4K
 and live emulated-phone account tests cover editing, replacement cancellation,
 save, sync and fresh-session reopening. Physical touch remains unverified.
+
+Static release `8116f42affd3fb89e936830c5c77c0df6a2c76920e303c0f973eb795c8fdb36b` serves the integrated menu and image/PDF exports. Local desktop, emulated-phone and 4K workflows passed, including keyboard and emulated-tap menu activation, conflict checks, PDF Viewer and Stitch Converter integration. A save-safety test initially lacked Stitch Converter in the isolated preview; it passed after the app was included. Public desktop and emulated-phone account tests passed editing, export, sync, fresh-session reopen and fallback. Physical phone touch and complex artwork remain unverified.
