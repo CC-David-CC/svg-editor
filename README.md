@@ -155,3 +155,12 @@ if the drawing changes during confirmation, export asks the user to retry.
 PNG preserves transparency. Local registered-account desktop and emulated-phone
 checks compared exported pixels, cancellation, server sync, and fresh SVG
 reopen. Physical touch and more complex image content remain unverified.
+
+**Save in folder…** in the SVG-Edit menu lets you choose a My files folder
+without typing its path. It keeps the current drawing filename and uses the
+same version checks and replacement confirmation as Save. A drawing or filename
+change while the chooser is open cancels that choice; choose again. Local
+registered-account desktop and emulated-phone tests covered a simulated edit
+while choosing, an existing-file cancellation and replacement, source
+preservation, server sync and fresh-session reopening. Physical touch is not
+verified.
