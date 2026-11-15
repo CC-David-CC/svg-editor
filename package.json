@@ -2,5 +2,8 @@
   "dependencies": {
     "jspdf": "4.2.1",
     "svgedit": "7.4.2"
+  },
+  "scripts": {
+    "test:reference": "node --test --test-reporter=tap tests/reference/*.test.mjs"
   }
 }
