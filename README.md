@@ -2,10 +2,13 @@
 
 SVG-edit runs in a separate desktop window. Use the **SVG-Edit** menu to open
 from My files, try the example, save, or save as a different path. Use Files to
-upload an SVG from a computer. Saves go to My files on the device and then sync
-with the account server. Existing files require confirmation, and conflicting
+upload an SVG from a computer. Saves go to My files. Existing files require confirmation, and conflicting
 versions are reported rather than silently replaced. If the embedded editor
 menu is unavailable, file controls appear above the editor as a fallback.
+
+Anon saves to the temporary workspace in this browser. Signed-in files sync to the account. Double-click a saved file in Files to continue editing it.
+
+![Editor after reopening a saved file from WebOS Files](docs/workspace.png)
 
 **Export image or PDF…** saves PNG, JPEG, WebP or PDF to My files. JPEG uses a white
 background. Rendering is limited to 16 million pixels, 16,384 pixels per side,
